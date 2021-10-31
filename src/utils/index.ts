@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-export const isFalsy = (val) => (val === 0 ? false : !val);
+export const isFalsy = (val: any) => (val === 0 ? false : !val);
 
-export const cleanObject = (obj) => {
+export const cleanObject = <T>(obj: { [key: string]: T }) => {
   const results = { ...obj };
   Object.keys(results).forEach((key) => {
     const val = obj[key];
@@ -12,7 +12,7 @@ export const cleanObject = (obj) => {
   return results;
 };
 
-export const useDebounce = ({ params, delay }) => {
+export const useDebounce = <T>(params: T, delay: number = 500) => {
   const [debounceVal, setDebounceVal] = useState(params);
 
   useEffect(() => {

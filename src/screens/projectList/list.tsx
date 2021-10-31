@@ -1,4 +1,19 @@
-export const List = ({ list, users }) => {
+import { User } from "screens/projectList/searchPanel";
+
+interface Project {
+  id: string;
+  name: string;
+  personId: string;
+  pin: string;
+  organization: string;
+}
+
+interface ListProps {
+  list: Project[];
+  users: User[];
+}
+
+export const List = ({ list, users }: ListProps) => {
   return (
     <table>
       <thead>
@@ -8,8 +23,7 @@ export const List = ({ list, users }) => {
         </tr>
       </thead>
       <tbody>
-        {list.map((i, idx) => {
-          console.log(i.personId);
+        {list.map((i) => {
           return (
             <tr key={i.id}>
               <td>{i.name}</td>

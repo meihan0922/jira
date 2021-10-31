@@ -2,7 +2,7 @@ import { SearchPanel } from "./searchPanel";
 import { List } from "./list";
 import { useEffect, useState } from "react";
 import { cleanObject, useDebounce } from "utils";
-import qs from "qs";
+import * as qs from "qs";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -10,7 +10,7 @@ export const ProjectListScreen = () => {
   const [list, setList] = useState([]);
   const [params, setParams] = useState({
     name: "",
-    personId: ""
+    personId: "",
   });
   const [users, setUsers] = useState([]);
 
